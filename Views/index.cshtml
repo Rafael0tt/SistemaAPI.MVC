@@ -1,0 +1,25 @@
+@model IEnumerable<MinhaApiMvc.Models.Product>
+
+<h2>Lista de Produtos</h2>
+<a asp-action="Create">Cadastrar Novo Produto</a>
+
+<table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Ações</th>
+        </tr>
+        @foreach (var Item in Model)
+        {
+            <tr>
+                <td>@Item.Id</td>
+                <td>@Item.Name</td>
+                <td>@Item.Price</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </table>
